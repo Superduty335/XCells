@@ -1,21 +1,52 @@
 {
   "expo": {
-    "name": "xcells",
+    "name": "XCells",
     "slug": "xcells",
+    "scheme": "xcells",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.superduty335.xcells",
+      "supportsTablet": true,
+      "infoPlist": {
+        "LSSupportsOpeningDocumentsInPlace": false,
+        "CFBundleDocumentTypes": [
+          {
+            "CFBundleTypeName": "Spreadsheet",
+            "CFBundleTypeRole": "Viewer",
+            "LSHandlerRank": "Alternate",
+            "LSItemContentTypes": [
+              "org.openxmlformats.spreadsheetml.sheet",
+              "com.microsoft.excel.xls",
+              "public.comma-separated-values-text",
+              "org.oasis-open.opendocument.spreadsheet"
+            ]
+          }
+        ]
+      }
     },
     "android": {
+      "package": "com.superduty335.xcells",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#02792F",
         "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "backgroundImage": "./assets/android-icon-background.png"
       },
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "category": ["DEFAULT"],
+          "data": [
+            { "scheme": "content", "mimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" },
+            { "scheme": "content", "mimeType": "application/vnd.ms-excel" },
+            { "scheme": "content", "mimeType": "text/csv" },
+            { "scheme": "content", "mimeType": "text/comma-separated-values" },
+            { "scheme": "content", "mimeType": "application/vnd.oasis.opendocument.spreadsheet" }
+          ]
+        }
+      ],
       "predictiveBackGestureEnabled": false
     },
     "web": {
