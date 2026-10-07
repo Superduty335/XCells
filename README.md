@@ -22,9 +22,11 @@ Scan the QR code with Expo Go on your phone to try it. `npm run web` also works 
 
 ## Build installable apps
 
-```bash
-npx eas-cli@latest build --platform ios       # or android, or all
-```
+You need a free Expo account (`npx eas-cli@latest login`). The first build links the project to it.
+
+- **Android phone (APK you install directly):** `npx eas-cli@latest build --platform android --profile preview`. Open the link EAS gives you on the phone and install it.
+- **iPhone:** requires an Apple Developer account ($99/year). `npx eas-cli@latest build --platform ios --profile production`, then `npx eas-cli@latest submit --platform ios` to send it to TestFlight.
+- **Store releases:** `--profile production` for both platforms, then `eas submit`.
 
 Bundle ID / package name: `com.superduty335.xcells` (change in `app.json` if you want a different one).
 
